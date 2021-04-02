@@ -6,6 +6,8 @@ namespace SimpleInputNamespace {
 
 	public class ButtonInputUI: MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
 
+		public PlayerController player;
+
 		public SimpleInput.ButtonInput button = new SimpleInput.ButtonInput();
 
 		private void Awake() {
@@ -25,13 +27,15 @@ namespace SimpleInputNamespace {
 		}
 
 		public void OnPointerDown(PointerEventData eventData) {
-			Debug.Log("Push button");
+			//Debug.Log("Push button");
 			button.value = true;
+			player.onButtonAction();
 		}
 
 		public void OnPointerUp(PointerEventData eventData) {
-			Debug.Log("Not push button");
+			//Debug.Log("Not push button");
 			button.value = false;
+			player.offButtonAction();
 		}
 	}
 }

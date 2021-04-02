@@ -6,6 +6,8 @@ namespace SimpleInputNamespace {
 
 	public class Joystick: MonoBehaviour, ISimpleInputDraggable {
 
+		public PlayerController player;
+
 		public enum MovementAxes { XandY, X, Y };
 		public SimpleInput.AxisInput xAxis = new SimpleInput.AxisInput("Horizontal");
 		public SimpleInput.AxisInput yAxis = new SimpleInput.AxisInput("Vertical");
@@ -178,22 +180,26 @@ namespace SimpleInputNamespace {
 			xAxis.value = m_value.x;
 			yAxis.value = m_value.y;
 
-			Debug.Log("Moving joystick");
+			//Debug.Log("Moving joystick");
 
 			if (xAxis.value > 0) {
-				Debug.Log("Right");
+				//Debug.Log("Right");
+				player.rightMovement();
 			} else {
-				Debug.Log("Left");
+				//Debug.Log("Left");
+				player.leftMovement();
 			}
 
 			if (yAxis.value > 0) {
-				Debug.Log("Up");
+				//Debug.Log("Up");
+				player.upMovement();
 			} else {
-				Debug.Log("Down");
+				//Debug.Log("Down");
+				player.downMovement();
 			}
 
-			Debug.Log("x: " + xAxis.value);
-			Debug.Log("y: " + yAxis.value);
+			//Debug.Log("x: " + xAxis.value);
+			//Debug.Log("y: " + yAxis.value);
 		}
 
 		public void OnPointerUp( PointerEventData eventData ) {
@@ -209,9 +215,9 @@ namespace SimpleInputNamespace {
 			xAxis.value = 0f;
 			yAxis.value = 0f;
 
-			Debug.Log("Zero joystick");
-			Debug.Log("x: " + xAxis.value);
-			Debug.Log("y: " + yAxis.value);
+			//Debug.Log("Zero joystick");
+			//Debug.Log("x: " + xAxis.value);
+			//Debug.Log("y: " + yAxis.value);
 		}
 
 		private void OnUpdate() {
