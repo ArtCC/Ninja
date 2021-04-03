@@ -17,8 +17,9 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        horizontal = Input.GetAxisRaw("Horizontal");
+        //horizontal = Input.GetAxisRaw("Horizontal");
         
+        // Player orientation
         if (horizontal < 0.0f) {
             transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
         } else if (horizontal > 0.0f) {
@@ -29,28 +30,30 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void upMovement() {
-        Debug.Log("Up");
+        //Debug.Log("Up");
     }
 
     public void downMovement() {
-        Debug.Log("Down");
+        //Debug.Log("Down");
     }
 
     public void leftMovement() {
-        Debug.Log("Left");
+        horizontal = -1.0f;
     }
 
     public void rightMovement() {
-        Debug.Log("Right");
+        horizontal = 1.0f;
+    }
+
+    public void zeroMovement() {
+        horizontal = 0.0f;
     }
 
     public void onButtonAction() {
-        Debug.Log("onButtonAction");
         animator.SetBool("atackIdle", true);
     }
 
     public void offButtonAction() {
-        Debug.Log("offButtonAction");
         animator.SetBool("atackIdle", false);
     }
 

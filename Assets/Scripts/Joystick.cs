@@ -218,6 +218,8 @@ namespace SimpleInputNamespace {
 			//Debug.Log("Zero joystick");
 			//Debug.Log("x: " + xAxis.value);
 			//Debug.Log("y: " + yAxis.value);
+
+			player.zeroMovement();
 		}
 
 		private void OnUpdate() {
